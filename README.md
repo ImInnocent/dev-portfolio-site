@@ -39,3 +39,12 @@ hotfix - 서비스중에 발생한 긴급 이슈를 수정하는 브랜치
 < URL 트리 이미지 >
 
 < ReactRouter 적용 코드 >
+
+## 소스 트리
+
+dev-portfolio-site
+┣ src
+┣ public
+┃ ┗ index.html
+┣ tsconfig.json
+┗ package.json
