@@ -1,0 +1,75 @@
+/* root */
+.slider-root {
+  text-align: center;
+  width: 800px;
+}
+
+.slider-container {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+}
+
+/* buttons */
+.slider-button-container {
+  position: relative;
+  padding: 10px;
+}
+
+.slider-button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.slider-button-left {
+  background-image: url("images/arrow-left.png");
+}
+
+.slider-button-right {
+  background-image: url("images/arrow-right.png");
+}
+
+/* image area */
+.slider-image-area {
+  display: inline-block;
+  height: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slider-image-inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+}
+
+.slider-image-container {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-image {
+  height: 100%;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-blue {
+  background-color: blue;
+}
