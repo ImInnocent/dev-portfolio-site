@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Dev Portfolio Site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 사이트 소개
 
-## Available Scripts
+< 실제 사이트 화면 ><br/>
+<br/>
+< 사이트 링크 ><br/>
+<br/>
+자신의 포트폴리오를 업로드하거나 다른 사람들의 포트폴리오를 열람하세요.<br/>
 
-In the project directory, you can run:
+## 기술 스택 (Teck Stack)
 
-### `yarn start`
+SCM (Source Code Management) - Git, Github<br/>
+Web Frontend - TypeScript + React<br/>
+State Management - Redux<br/>
+Backend API - Firebase<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Git Branch 관리 - Vincent Driessen의 모델
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+깃 브랜치 모델 중 가장 대중적인 Vincent Driessen의 모델을 사용.<br/>
+https://nvie.com/posts/a-successful-git-branching-model/<br/>
+<br/>
+< 실제 커밋 트리 사진 삽입 ><br/>
+<br/>
+master - 서비스가 가능한 상태의 버전만 보유<br/>
+develop - 개발 중인 내용들을 커밋<br/>
+release - 서비스 준비 상태에서 버그 픽스를 위한 내용을 커밋<br/>
+feature-xx - 버전의 주요 기능을 개발<br/>
+hotfix - 서비스중에 발생한 긴급 이슈를 수정하는 브랜치<br/>
 
-### `yarn test`
+## 상태 관리 (State Management) - Redux 사용
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+< Redux에 관한 설명 ><br/>
+<br/>
+< Redux 적용 내용 ><br/>
 
-### `yarn build`
+## 라우팅 (Routing) - React Router 사용
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+< URL 트리 이미지 ><br/>
+<br/>
+< ReactRouter 적용 코드 ><br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 소스 트리
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+dev-portfolio-site<br/>
+┣ src<br/>
+┣ public<br/>
+┃ ┗ index.html<br/>
+┣ tsconfig.json<br/>
+┗ package.json<br/>
