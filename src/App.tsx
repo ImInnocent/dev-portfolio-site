@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
-import Slider from './SliderComponent';
+import Slider from './Components/Slider';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './SliderComponent.css';
+import './Slider.css';
 
 const imageLinks = [
   "https://mblogthumb-phinf.pstatic.net/20130508_178/ichufs_1367997175282LLvRG_JPEG/IMG_3337s.jpg?type=w420",
