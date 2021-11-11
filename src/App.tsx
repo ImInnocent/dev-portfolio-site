@@ -1,10 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import {
+  Routes, Route, Outlet, Link, 
+  Navigate, useLocation, useNavigate,
+} from "react-router-dom";
 import Slider from './Components/Slider';
+import { useAuth } from './Contexts/Auth';
 
 function App() {
+  let auth = useAuth();
+  let location = useLocation();
+  let navigate = useNavigate();
+
+  let from = location.state?.from?.pathname || "/";
+
+  const handleLogin = () => {
+    auth.signin();
+    navigate(from, { replace: true });
+  }
+  
   return (
     <>
       <LinkPage />
@@ -28,11 +43,20 @@ function App() {
           // </div>
         }>
         </Route>
-        <Route path="login" element={<div>login</div>} />
+        <Route path="login" element={
+          <div>
+            login
+            <button onClick={handleLogin}>로그인하기</button>
+          </div>
+        } />
         <Route path="signup" element={<div>signup</div>} />
         <Route path="article">
           <Route path=":id" element={<div>article</div>} />
-          <Route path="write" element={<div>write</div>} />
+          <Route path="write" element={
+            <RequireAuth>
+              <div>write</div>
+            </RequireAuth>
+          } />
         </Route>
         <Route path="profile">
           <Route path=":id" element={<div>profile</div>} />
@@ -74,6 +98,17 @@ function LinkPage() {
       <Outlet />
     </div>
   );
+}
+
+function RequireAuth({ children }: { children: JSX.Element }) {
+  let auth = useAuth();
+  let location = useLocation();
+
+  if (!auth.user) {
+    return <Navigate to="/login" state={{ from: location }} />;
+  }
+
+  return children;
 }
 
 export default App;
