@@ -6,14 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
 import { AuthProvider } from './Contexts/Auth';
+import { LocalStorageProvider } from './Contexts/LocalStorage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </AuthProvider>
+    <LocalStorageProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AuthProvider>
+    </LocalStorageProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
