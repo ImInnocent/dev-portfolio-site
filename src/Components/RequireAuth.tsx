@@ -18,3 +18,7 @@ export default function RequireAuth({ children }: { children: JSX.Element }) {
 
   return children;
 }
+
+export function withRequireAuth(element: JSX.Element): JSX.Element {
+  return <RequireAuth>{element}</RequireAuth>
+}

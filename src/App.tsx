@@ -6,7 +6,7 @@ import {
 import Slider from './Components/Slider';
 import SigninPage from './Pages/SigninPage';
 import SignupPage from './Pages/SignupPage';
-import RequireAuth from './Components/RequireAuth';
+import { withRequireAuth } from './Components/RequireAuth';
 
 function App() {
   return (
@@ -25,11 +25,7 @@ function App() {
           {/* article page */}
           <Route path=":id" element={<div>article</div>} />
           {/* article edit */}
-          <Route path="write" element={
-            <RequireAuth>
-              <div>write</div>
-            </RequireAuth>
-          } />
+          <Route path="write" element={(withRequireAuth(<div>write</div>))} />
         </Route>
         {/* user profile */}
         <Route path="profile">
