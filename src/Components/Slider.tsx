@@ -39,7 +39,7 @@ export default function Slider() {
           </div>
         </div>
         {/* right button */}
-        <div className="relative slider-button-container">
+        <div className="relative p-2.5">
           <button 
             className="bg-contain bg-transparent border-0 cursor-pointer absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-arrow-right" 
             onClick={() => handleMoveImage(imageIndex + 1)} />
