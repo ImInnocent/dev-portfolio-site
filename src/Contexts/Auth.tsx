@@ -1,11 +1,14 @@
 import React, { useState, useContext } from 'react';
+import User from '../Types/User';
+import { useLocalStorage } from './LocalStorage';
 
 let AuthContext = React.createContext<AuthContextType>(null!);
 
 const { Provider, Consumer: AuthConsumer } = AuthContext;
 
 function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = React.useState<boolean>(false);
+  const [user, setUser] = React.useState<User | null>(null);
+  const storage = useLocalStorage();
 
   /**
    * 가입 신청 했을 때 실행
@@ -17,35 +20,47 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
       return false;
     }
 
+    storage.addUser({ name: username, password });
+
     return true;
   };
 
   /**
    * 로그인 했을 때 실행
    */
-  const signin = () => {
-    setUser(true);
+  const signin = (username: string, password: string): boolean => {
+    const targetUser = storage.getUser(username);
+
+    if (targetUser === null) {
+      return false;
+    } else if (targetUser.name !== username || targetUser.password !== password) {
+      return false;
+    }
+
+    setUser(targetUser);
+
+    return true;
   };
 
   /**
    * 로그아웃했을 때 실행
    */
   const signout = () => {
-    setUser(false);
+    setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, signin, signout, signup }}>
+    <Provider value={{ user, signin, signout, signup }}>
       {children}
-    </AuthContext.Provider>
+    </Provider>
   );
 }
 
 export default AuthContext;
 interface AuthContextType {
-  user: boolean;
+  user: User | null;
   signup: (username: string, password: string) => boolean;
-  signin: () => void;
+  signin: (username: string, password: string) => boolean;
   signout: () => void;
 };
 export { AuthProvider, AuthConsumer };

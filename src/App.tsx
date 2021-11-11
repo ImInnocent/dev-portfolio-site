@@ -21,8 +21,12 @@ function App() {
   const [message, setMessage] = useState<string>("");
 
   const handleLogin = () => {
-    auth.signin();
-    navigate(from, { replace: true });
+    if (auth.signin(username, password)) {
+      reset();
+      navigate(from, { replace: true });
+    } else {
+      setMessage("유저 이름이나 비밀번호를 확인하세요.");
+    }
   }
 
   const handleSignup = () => {
@@ -31,10 +35,17 @@ function App() {
     } else if (password.length === 0) {
       setMessage("비밀번호를 입력해주세요");
     } else if (auth.signup(username, password)) {
+      reset();
       navigate(from, { replace: true });
     } else {
       setMessage("가입에 실패했습니다.");
     }
+  }
+
+  const reset = () => {
+    setUsername("");
+    setPassword("");
+    setMessage("");
   }
   
   return (
@@ -47,8 +58,11 @@ function App() {
         {/* login */}
         <Route path="login" element={
           <div>
-            login
-            <button onClick={handleLogin}>로그인하기</button>
+            login<br/>
+            유저 이름 <input className="border-2 border-black" type="text" id="username" name="username" value={username} onChange={e => setUsername(e.target.value)} required /><br/>
+            비밀번호 <input className="border-2 border-black" type="password" id="password" name="password" value={password} onChange={e => setPassword(e.target.value)} required /><br/>
+            <button className="border-2 border-black" onClick={() => handleLogin()}>로그인하기</button><br/>
+            {message}
           </div>
         } />
         {/* sign up */}
