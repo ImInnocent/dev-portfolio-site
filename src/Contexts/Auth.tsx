@@ -12,6 +12,10 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 
   /**
    * 가입 신청 했을 때 실행
+   * 
+   * @param {string} username: 사용자 이름
+   * @param {string} password: 비밀번호
+   * @return {boolean} 가입 성공 여부
    */
   const signup = (username: string, password: string) => {
     if (username.length === 0) {
@@ -27,6 +31,10 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 
   /**
    * 로그인 했을 때 실행
+   * 
+   * @param {string} username: 사용자 이름
+   * @param {string} password: 비밀번호
+   * @return {boolean} 로그인 성공 여부
    */
   const signin = (username: string, password: string): boolean => {
     const targetUser = storage.getUser(username);

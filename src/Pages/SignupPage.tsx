@@ -14,12 +14,19 @@ export default function SignupPage() {
   const [password, setPassword] = useString();
   const [message, setMessage] = useState<string>("");
 
+  /**
+   * 입력 데이터 초기화
+   */
   const reset = () => {
     setUsername("");
     setPassword("");
     setMessage("");
   }
 
+  /**
+   * 가입하기 버튼을 눌렀을 때 호출
+   * 가입 성공 시 이전 페이지로 이동
+   */
   const handleSignup = () => {
     if (username.length === 0) {
       setMessage("유저 이름을 입력해주세요");
