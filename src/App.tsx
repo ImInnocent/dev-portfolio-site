@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Slider from './Components/Slider';
 import { useAuth } from './Contexts/Auth';
+import useString from './Hooks/StringState';
 
 function App() {
   let auth = useAuth();
@@ -15,52 +16,67 @@ function App() {
 
   let from = location.state?.from?.pathname || "/";
 
+  const [username, setUsername] = useString();
+  const [password, setPassword] = useString();
+  const [message, setMessage] = useState<string>("");
+
   const handleLogin = () => {
     auth.signin();
     navigate(from, { replace: true });
+  }
+
+  const handleSignup = () => {
+    if (username.length === 0) {
+      setMessage("유저 이름을 입력해주세요");
+    } else if (password.length === 0) {
+      setMessage("비밀번호를 입력해주세요");
+    } else if (auth.signup(username, password)) {
+      navigate(from, { replace: true });
+    } else {
+      setMessage("가입에 실패했습니다.");
+    }
   }
   
   return (
     <>
       <LinkPage />
       <Routes>
-        <Route path="/" element={<Slider />
-          // <div className="App">
-          //   <header className="App-header">
-          //     <img src={logo} className="App-logo" alt="logo" />
-          //     <p>
-          //       Edit <code>src/App.tsx</code> and save to reload.
-          //     </p>
-          //     <a
-          //       className="App-link"
-          //       href="https://reactjs.org"
-          //       target="_blank"
-          //       rel="noopener noreferrer"
-          //     >
-          //       Learn React
-          //     </a>
-          //   </header>
-          // </div>
-        }>
+        {/* homepage */}
+        <Route path="/" element={<Slider />}>
         </Route>
+        {/* login */}
         <Route path="login" element={
           <div>
             login
             <button onClick={handleLogin}>로그인하기</button>
           </div>
         } />
-        <Route path="signup" element={<div>signup</div>} />
+        {/* sign up */}
+        <Route path="signup" element={
+          <div>
+            signup<br/>
+            유저 이름 <input className="border-2 border-black" type="text" id="username" name="username" value={username} onChange={e => setUsername(e.target.value)} required /><br/>
+            비밀번호 <input className="border-2 border-black" type="password" id="password" name="password" value={password} onChange={e => setPassword(e.target.value)} required /><br/>
+            <button className="border-2 border-black" onClick={() => handleSignup()}>가입하기</button><br/>
+            {message}
+          </div>} 
+        />
+        {/* article */}
         <Route path="article">
+          {/* article page */}
           <Route path=":id" element={<div>article</div>} />
+          {/* article edit */}
           <Route path="write" element={
             <RequireAuth>
               <div>write</div>
             </RequireAuth>
           } />
         </Route>
+        {/* user profile */}
         <Route path="profile">
           <Route path=":id" element={<div>profile</div>} />
         </Route>
+        {/* default 404 page */}
         <Route path="*" element={<div>unsupported page</div>} />
       </Routes>
     </>

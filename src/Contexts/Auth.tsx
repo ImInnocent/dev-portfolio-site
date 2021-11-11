@@ -8,6 +8,19 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = React.useState<boolean>(false);
 
   /**
+   * 가입 신청 했을 때 실행
+   */
+  const signup = (username: string, password: string) => {
+    if (username.length === 0) {
+      return false;
+    } else if (password.length === 0) {
+      return false;
+    }
+
+    return true;
+  };
+
+  /**
    * 로그인 했을 때 실행
    */
   const signin = () => {
@@ -22,7 +35,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, signin, signout }}>
+    <AuthContext.Provider value={{ user, signin, signout, signup }}>
       {children}
     </AuthContext.Provider>
   );
@@ -31,6 +44,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 export default AuthContext;
 interface AuthContextType {
   user: boolean;
+  signup: (username: string, password: string) => boolean;
   signin: () => void;
   signout: () => void;
 };
