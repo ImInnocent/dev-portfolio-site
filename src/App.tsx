@@ -3,13 +3,23 @@ import logo from './logo.svg';
 import './App.css';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Slider from './Components/Slider';
+import Card from './Components/Card';
 
 function App() {
   return (
     <>
       <LinkPage />
       <Routes>
-        <Route path="/" element={<Slider />
+        <Route path="/" element={
+          <div className="grid p-8 grid-cols-4 gap-8">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
           // <div className="App">
           //   <header className="App-header">
           //     <img src={logo} className="App-logo" alt="logo" />
