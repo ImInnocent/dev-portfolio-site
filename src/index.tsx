@@ -1,23 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
-
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
 import { AuthProvider } from './Contexts/Auth';
 import { LocalStorageProvider } from './Contexts/LocalStorage';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <LocalStorageProvider>
-      <AuthProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </AuthProvider>
-    </LocalStorageProvider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <LocalStorageProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </AuthProvider>
+      </LocalStorageProvider>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
