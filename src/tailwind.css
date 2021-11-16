@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .slider-container {
+    grid-template-columns: 100px 1fr 100px;
+  }
+}

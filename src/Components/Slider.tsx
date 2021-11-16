@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import './Slider.css';
-
 const imageLinks = [
   "https://mblogthumb-phinf.pstatic.net/20130508_178/ichufs_1367997175282LLvRG_JPEG/IMG_3337s.jpg?type=w420",
   "https://lh3.googleusercontent.com/proxy/VQMiXkX_H1hFAGacQWOS2IZhmzyYhkwzJya3Hzwh0WnzJU_bk1ExQdUf35218gMr_jMwmLTnAmrB2QtUycz7JvAfcKalu1TOaP6TwpjWjfSgRPE",
@@ -21,29 +19,29 @@ export default function Slider() {
   }
 
   return (
-    <div className="slider-root">
+    <div className="text-center w-800">
       Slider
-      <div className="slider-container">
+      <div className="grid slider-container">
         {/* left button */}
-        <div className="slider-button-container">
+        <div className="relative p-2.5">
           <button 
-            className="slider-button slider-button-left" 
+            className="bg-contain bg-transparent border-0 cursor-pointer absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-arrow-left" 
             onClick={() => handleMoveImage(imageIndex - 1)} />
         </div>
         {/* image area */}
-        <div className="slider-image-area">
-          <div style={{ transform: `translateX(-${imageIndex}00%)` }} className="slider-image-inner">
+        <div className="inline-block overflow-hidden whitespace-nowrap h-100">
+          <div style={{ transform: `translateX(-${imageIndex}00%)` }} className="block transition-transform w-full h-full">
             {imageLinks.map(link => (
-              <div className="slider-image-container">
-                <img className="slider-image" src={link} />
+              <div className="inline-block w-full h-full">
+                <img className="h-full" src={link} />
               </div>
             ))}
           </div>
         </div>
         {/* right button */}
-        <div className="slider-button-container">
+        <div className="relative slider-button-container">
           <button 
-            className="slider-button slider-button-right" 
+            className="bg-contain bg-transparent border-0 cursor-pointer absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-arrow-right" 
             onClick={() => handleMoveImage(imageIndex + 1)} />
         </div>
       </div>
