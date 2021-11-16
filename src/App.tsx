@@ -1,9 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import {
+  Routes, Route, Outlet, Link, 
+} from "react-router-dom";
 import Slider from './Components/Slider';
 import Card from './Components/Card';
+import SigninPage from './Pages/SigninPage';
+import SignupPage from './Pages/SignupPage';
+import { withRequireAuth } from './Components/RequireAuth';
 
 function App() {
   return (
@@ -38,15 +42,22 @@ function App() {
           // </div>
         }>
         </Route>
-        <Route path="login" element={<div>login</div>} />
-        <Route path="signup" element={<div>signup</div>} />
+        {/* login */}
+        <Route path="login" element={<SigninPage />} />
+        {/* sign up */}
+        <Route path="signup" element={<SignupPage />} />
+        {/* article */}
         <Route path="article">
+          {/* article page */}
           <Route path=":id" element={<div>article</div>} />
-          <Route path="write" element={<div>write</div>} />
+          {/* article edit */}
+          <Route path="write" element={(withRequireAuth(<div>write</div>))} />
         </Route>
+        {/* user profile */}
         <Route path="profile">
           <Route path=":id" element={<div>profile</div>} />
         </Route>
+        {/* default 404 page */}
         <Route path="*" element={<div>unsupported page</div>} />
       </Routes>
     </>
