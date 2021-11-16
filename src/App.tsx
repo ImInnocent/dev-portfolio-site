@@ -8,21 +8,28 @@ import Card from './Components/Card';
 import SigninPage from './Pages/SigninPage';
 import SignupPage from './Pages/SignupPage';
 import { withRequireAuth } from './Components/RequireAuth';
+import Input from './Components/Input';
 
 function App() {
   return (
     <>
-      <LinkPage />
+      {/* <LinkPage /> */}
       <Routes>
         <Route path="/" element={
-          <div className="grid p-8 grid-cols-4 gap-8">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+          <div>
+            <div className='flex items-center pl-9 h-16 bg-blue-300 mb-8' />
+            <div className='flex justify-center'>
+              <Input />
+            </div>
+            <div className="grid p-8 grid-cols-4 gap-8">
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+            </div>
           </div>
           // <div className="App">
           //   <header className="App-header">
