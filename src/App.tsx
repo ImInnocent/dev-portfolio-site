@@ -4,6 +4,7 @@ import {
   Routes, Route, Outlet, Link, 
 } from "react-router-dom";
 import Slider from './Components/Slider';
+import Card from './Components/Card';
 import SigninPage from './Pages/SigninPage';
 import SignupPage from './Pages/SignupPage';
 import { withRequireAuth } from './Components/RequireAuth';
@@ -13,8 +14,33 @@ function App() {
     <>
       <LinkPage />
       <Routes>
-        {/* homepage */}
-        <Route path="/" element={<Slider />}>
+        <Route path="/" element={
+          <div className="grid p-8 grid-cols-4 gap-8">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
+          // <div className="App">
+          //   <header className="App-header">
+          //     <img src={logo} className="App-logo" alt="logo" />
+          //     <p>
+          //       Edit <code>src/App.tsx</code> and save to reload.
+          //     </p>
+          //     <a
+          //       className="App-link"
+          //       href="https://reactjs.org"
+          //       target="_blank"
+          //       rel="noopener noreferrer"
+          //     >
+          //       Learn React
+          //     </a>
+          //   </header>
+          // </div>
+        }>
         </Route>
         {/* login */}
         <Route path="login" element={<SigninPage />} />

@@ -1,7 +1,11 @@
 module.exports = {
   purge: [],
   darkMode: false, 
-  variants: {},
+  variants: {
+    extend: {
+      display: ["group-hover"],
+    },
+  },
   plugins: [],
   theme: {
     extend: {
