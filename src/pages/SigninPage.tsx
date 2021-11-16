@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import useString from '../hooks/StringState';
-import { useAuth } from '../Contexts/Auth';
+import { useAuth } from '../contexts/Auth';
 
 export default function SigninPage() {
   let navigate = useNavigate();

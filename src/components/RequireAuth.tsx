@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useAuth } from '../Contexts/Auth';
+import { useAuth } from '../contexts/Auth';
 
 /**
  * 유저 인증이 필요한 컴포넌트를 감쌀 때 사용.

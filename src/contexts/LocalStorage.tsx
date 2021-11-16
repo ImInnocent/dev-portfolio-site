@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import User from '../Types/User';
+import User from '../types/User';
 
 const KEY_USERS = "users";
 

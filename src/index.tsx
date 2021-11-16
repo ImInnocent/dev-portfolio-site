@@ -4,8 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
-import { AuthProvider } from './Contexts/Auth';
-import { LocalStorageProvider } from './Contexts/LocalStorage';
+import { AuthProvider } from './contexts/Auth';
+import { LocalStorageProvider } from './contexts/LocalStorage';
 import { Provider } from 'react-redux';
 import { store } from './store';
 

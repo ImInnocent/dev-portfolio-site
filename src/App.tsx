@@ -3,11 +3,11 @@ import './App.css';
 import {
   Routes, Route, Outlet, Link, 
 } from "react-router-dom";
-import Slider from './Components/Slider';
-import Card from './Components/Card';
-import SigninPage from './Pages/SigninPage';
-import SignupPage from './Pages/SignupPage';
-import { withRequireAuth } from './Components/RequireAuth';
+import Slider from './components/Slider';
+import Card from './components/Card';
+import SigninPage from './pages/SigninPage';
+import SignupPage from './pages/SignupPage';
+import { withRequireAuth } from './components/RequireAuth';
 
 function App() {
   return (

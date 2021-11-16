@@ -11,7 +11,7 @@
 ## 기술 스택 (Teck Stack)
 
 SCM (Source Code Management) - Git, Github<br/>
-Web Frontend - TypeScript + React<br/>
+Web Frontend - TypeScript + React + TailwindCSS<br/>
 State Management - Redux<br/>
 Backend API - Firebase<br/>
 
@@ -36,7 +36,16 @@ hotfix - 서비스중에 발생한 긴급 이슈를 수정하는 브랜치<br/>
 
 ## 라우팅 (Routing) - React Router 사용
 
-< URL 트리 이미지 ><br/>
+URL 트리
+/<br/>
+┣ login: 로그인 화면<br/>
+┣ signup: 회원가입 화면<br/>
+┣ article<br/>
+┃ ┣ :id: 게시글 보기<br/>
+┃ ┗ write: 게시글 작성<br/>
+┣ profile<br/>
+┃ ┗ :id: 프로필 보기
+┗ *: 404 Page<br/>
 <br/>
 < ReactRouter 적용 코드 ><br/>
 
@@ -44,6 +53,13 @@ hotfix - 서비스중에 발생한 긴급 이슈를 수정하는 브랜치<br/>
 
 dev-portfolio-site<br/>
 ┣ src<br/>
+┃ ┣ components: 컴포넌트<br/>
+┃ ┣ contexts: React 컨텍스트<br/>
+┃ ┣ hooks: React 훅<br/>
+┃ ┣ pages: 각 페이지 Component<br/>
+┃ ┣ store: Redux 데이터<br/>
+┃ ┣ types: TypeScript 타입 명세<br/>
+┃ ┗ tailwind.css: TailwindCss 컨텐츠 명세<br/>
 ┣ public<br/>
 ┃ ┗ index.html<br/>
 ┣ tsconfig.json<br/>
