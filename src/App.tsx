@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
 import './App.css';
 import {
   Routes, Route, Outlet, Link, 
 } from "react-router-dom";
-import Slider from './components/Slider';
 import Card from './components/Card';
 import SigninPage from './pages/SigninPage';
 import SignupPage from './pages/SignupPage';
