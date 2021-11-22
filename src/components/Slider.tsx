@@ -20,7 +20,6 @@ export default function Slider() {
 
   return (
     <div className="text-center w-800">
-      Slider
       <div className="grid slider-container">
         {/* left button */}
         <div className="relative p-2.5">
