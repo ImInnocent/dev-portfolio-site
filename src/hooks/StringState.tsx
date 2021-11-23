@@ -7,7 +7,7 @@ import React, { useState } from 'react';
  * @returns {[string, (any) => void]} 데이터와 set함수 반환
  */
 export default function useString(init?: string): [string, (value: any) => void] {
-  const [str, setStr] = useState<string>(init === undefined ? "" : init);
+  const [str, setStr] = useState<string>(init === undefined ? '' : init);
 
   /**
    * type과 null을 체크한 후 설정
@@ -16,11 +16,11 @@ export default function useString(init?: string): [string, (value: any) => void]
    */
   const stringFilter = (value: any) => {
     if (value === null || value === undefined) {
-      setStr("");
+      setStr('');
     } else if (typeof value === 'string') {
       setStr(value);
     } else {
-      console.warn("unsupported types: " + (typeof value));
+      console.warn('unsupported types: ' + (typeof value));
     }
   }
 

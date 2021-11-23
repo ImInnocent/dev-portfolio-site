@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import User from '../types/User';
 
-const KEY_USERS = "users";
+const KEY_USERS = 'users';
 
 let LocalStorageContext = React.createContext<LocalStorageContextType>(null!);
 

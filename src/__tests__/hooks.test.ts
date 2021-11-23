@@ -1,9 +1,9 @@
-import { renderHook } from "@testing-library/react-hooks";
-import { act } from "react-dom/test-utils";
-import useToggle from "../hooks/useToggle";
+import { renderHook } from '@testing-library/react-hooks';
+import { act } from 'react-dom/test-utils';
+import useToggle from '../hooks/useToggle';
 
-describe("Hooks testing", () => {
-  test("useToggle hook unit testing", () => {
+describe('Hooks testing', () => {
+  test('useToggle hook unit testing', () => {
     const { result } = renderHook(() => useToggle(false));
     const [isOn, toggle] = [result.current[0], result.current[1]];
     expect(isOn).toBe(false);
@@ -12,4 +12,4 @@ describe("Hooks testing", () => {
     })
     expect(true).toBe(true);
   })
-})
+});
