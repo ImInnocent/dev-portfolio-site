@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { SetUserNamePayload } from './types'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { SetUserNamePayload } from './types';
 
 export interface UserState {
   name: string,
@@ -17,7 +17,7 @@ export const userSlice = createSlice({
       state.name = action.payload.name;
     },
   },
-})
+});
 
 export const { setUserName } = userSlice.actions;
 
