@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import useString from '../hooks/StringState';
+import useString from '../hooks/useString';
 import { useAuth } from '../contexts/Auth';
 
 export default function SignupPage() {
