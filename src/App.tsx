@@ -3,11 +3,12 @@ import Card from './components/Card';
 import SigninPage from './pages/SigninPage';
 import SignupPage from './pages/SignupPage';
 import { withRequireAuth } from './components/RequireAuth';
+import ArticlePage from './pages/ArticlePage';
 
 function App() {
   return (
     <>
-      <LinkPage />
+      {/* <LinkPage /> */}
       <Routes>
         <Route path='/' element={
           <div className='grid p-8 grid-cols-4 gap-8'>
@@ -28,7 +29,7 @@ function App() {
         {/* article */}
         <Route path='article'>
           {/* article page */}
-          <Route path=':id' element={<div>article</div>} />
+          <Route path=":id" element={<ArticlePage />} />
           {/* article edit */}
           <Route path='write' element={(withRequireAuth(<div>write</div>))} />
         </Route>
